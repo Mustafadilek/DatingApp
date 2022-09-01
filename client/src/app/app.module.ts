@@ -13,6 +13,9 @@ import { MemberDetailComponent } from './members/member-detail/member-detail/mem
 import { MemberListComponent } from './members/member-list/member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
+import { ToastrModule } from 'ngx-toastr';
+import { AuthGuard } from './_guards/auth.guard';
+import { SharedModule } from './_modules/shared.module';
 
 
 @NgModule({
@@ -32,10 +35,10 @@ import { MessagesComponent } from './messages/messages.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    BsDropdownModule,
-    BsDropdownModule.forRoot()
+  SharedModule
+
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
